@@ -63,14 +63,16 @@ function mostrarSecciones(){
 
 };
 
-function obtenerPlatillos() {
-    const url = './db.json';
+function obtenerPlatillos(){
+    const url = 'http://localhost:3000/platillos';
+
     fetch(url)
-        .then( resp => resp.json())
-        .then( result => mostrarPlatillo(result.platillos) )
-        .catch( err => console.log(err))
+        .then(respuesta => respuesta.json())
+        .then(resultado => mostrarPlatillos(resultado))
+        .catch(error => console.log(error))
 };
 
+// json-server --watch db.json --port 3000 
 
 function mostrarPlatillos(platillos) {
     const contenido = document.querySelector('#platillos .contenido');
